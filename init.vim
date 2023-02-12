@@ -46,7 +46,7 @@ call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'vim-airline/vim-airline' " A cool status bar
-Plug 'ayu-theme/ayu-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }'
 
 " UI
 Plug 'easymotion/vim-easymotion' " Move between words (space+m)
