@@ -79,6 +79,9 @@ syntax on
 set t_Co=256
 colorscheme onehalfdark
 let g:lightline = { 'colorscheme': 'onehalfdark' }
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
 " -----------------------------------------------
 
 " 
