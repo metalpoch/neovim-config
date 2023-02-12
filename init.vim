@@ -4,7 +4,7 @@ set numberwidth=1
 set clipboard=unnamed
 syntax enable
 set showcmd
-"set cursorline
+set cursorline
 set encoding=utf-8
 set showmatch
 set sw=2
@@ -75,12 +75,10 @@ call plug#end()
 
 " nvim styles
 " -----------------------------------------------
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
+syntax on
+set t_Co=256
+colorscheme onehalfdark
+let g:lightline = { 'colorscheme': 'onehalfdark' }
 " -----------------------------------------------
 
 " 
