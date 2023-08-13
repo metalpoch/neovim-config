@@ -63,11 +63,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim' " Auto close tags html with: ,,
 
 " React syntax highlighting
-Plug 'yuezk/vim-js' "JS
+Plug 'pangloss/vim-javascript' "JS
 Plug 'HerringtonDarkholme/yats.vim' "TS
 Plug 'maxmellon/vim-jsx-pretty' "JSX-TSX
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } "Styles
 Plug 'jparise/vim-graphql' "graphql
+
+" Astro
+Plug 'wuelnerdotexe/vim-astro'
+Plug 'yaegassy/coc-astro', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-tailwindcss3' 
 
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -84,11 +89,15 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " -----------------------------------------------
 
-" 
+" Astro TypeScript
+let g:astro_typescript = 'enable'
+
 " Coc extensions
 "---------------
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
   \ 'coc-pyright',
   \ 'coc-json',
   \ 'coc-html',
@@ -100,7 +109,7 @@ let g:coc_global_extensions = [
 "---------------
 "
 " Coc Settings
-"----------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " display diagnostics (errors and warnings) in a tooltip for words you cursor over
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
@@ -118,27 +127,16 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
-"----------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 
 " Javascript/Typescript Enviroment Settings
-"-----------------------------------------------------------------------------------
+"--------------------------------------------------------------------------------
 " enable buffering on javascript/typescript input and disable on exit
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
-" optionally install if these modules exist
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-"-----------------------------------------------------------------------------------
-
-
 " Othe pluggins
-"-----------------------------------------------------------------------------------
+"--------------------------------------------------------------------------------
 "
 " Emmet
 let g:user_emmet_install_global = 0
@@ -161,4 +159,3 @@ let g:NERDTrimTrailingWhitespace = 1
 " Identline
 let g:indentLine_fileTypeExclude = ['text', 'help', 'terminal']
 let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
-"-----------------------------------------------------------------------------------
